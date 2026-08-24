@@ -4,11 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Property + Technology</title>
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -103,10 +98,8 @@
     background:linear-gradient(to bottom, rgba(7,5,14,0.94), rgba(7,5,14,0));
     backdrop-filter:blur(8px);
   }
-  .logo-link{display:flex;align-items:center;gap:10px;line-height:0;}
-  .logo-img{height:34px;width:auto;display:block;flex-shrink:0;}
-  .logo-text{
-    font-family:var(--font-head);font-weight:700;font-size:18px;letter-spacing:-0.02em;line-height:normal;
+  .logo{
+    font-family:var(--font-head);font-weight:700;font-size:18px;letter-spacing:-0.02em;
     background:linear-gradient(90deg, #FFFFFF 0%, #6BFFD0 20%, #8F73E8 40%, #FFFFFF 62%, #FFFFFF 100%);
     background-size:260% 100%;
     -webkit-background-clip:text;background-clip:text;
@@ -115,7 +108,7 @@
   }
   @keyframes logo-sweep{from{background-position:130% 0;}to{background-position:-130% 0;}}
   @media (prefers-reduced-motion:reduce){
-    .logo-text{animation:none;background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);}
+    .logo{animation:none;background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);}
   }
   .navlinks{display:flex;gap:24px;font-size:14px;font-weight:700;color:var(--ink-soft);align-items:center;}
   .navlinks a:hover{color:var(--ink);}
@@ -128,8 +121,7 @@
   @media (max-width:840px){.navlinks a:not(.cta){display:none;}}
   @media (max-width:380px){
     nav{padding:16px 4vw;}
-    .logo-img{height:26px;}
-    .logo-text{font-size:15px;}
+    .logo{font-size:16px;}
     .navlinks .cta{padding:8px 15px;font-size:12.5px;}
   }
 
@@ -401,7 +393,6 @@
   .card:hover .go{border-color:currentColor;gap:12px;}
   .card .go.dim{color:var(--ink-dim);cursor:default;}
   .card:hover .go.dim{border-color:transparent;gap:8px;}
-  .card.c1:hover{background:var(--bg-2);cursor:default;}
 
   .uc-overlay{
     display:none;
@@ -733,13 +724,10 @@
 </div>
 
 <nav>
-  <a href="/" class="logo-link">
-    <img src="assets/pt-logo.png" alt="" class="logo-img">
-    <span class="logo-text">Property and Technology</span>
-  </a>
+  <div class="logo">Property and Technology</div>
   <div class="navlinks">
-    <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Inside the Feed</a>
-    <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Founders and Friends Talent Network</a>
+    <a href="https://evanprothro-newsletter.beehiiv.com/" target="_blank" rel="noopener noreferrer">Inside the Feed</a>
+    <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Founders &amp; Friends</a>
     <a href="#under-construction">About</a>
     <a href="#contact">Contact Us</a>
     <a href="https://foundersandfriends.eh2homes.workers.dev/#/" class="cta" target="_blank" rel="noopener noreferrer">View Open Roles</a>
@@ -851,7 +839,7 @@
     <div class="eyebrow">Launching Soon</div>
     <h1>The <span class="accent">Founders &amp; Friends</span> Talent Network is opening its doors.</h1>
     <p class="sub">We're building the hiring home for Property + Technology people — every rank, one network. Get on the list now and be first in when roles go live.</p>
-    <p class="eco-line">Also part of the ecosystem: <a href="#hub">Syndeo</a>, our invite-only founder community, and <a href="#hub">the Newsletter</a>, our take on real estate, proptech and AI.</p>
+    <p class="eco-line">Also part of the ecosystem: <a href="https://syndeo-main-page.eh2homes.workers.dev/" target="_blank" rel="noopener noreferrer">Syndeo</a>, our invite-only founder community, and <a href="#hub">the Newsletter</a>, our take on real estate, proptech and AI.</p>
 
     <div class="stat-line">
       <span class="rank-line">From Tenants to Founders</span>
@@ -1093,7 +1081,7 @@ END TICKER + SHOWCASE -->
         <h3>Syndeo</h3>
         <p>Where top property and tech decision-makers unite to create meaningful change beyond the boardroom.</p>
       </div>
-      <span class="go dim">Under Construction</span>
+      <a href="https://syndeo-main-page.eh2homes.workers.dev/" target="_blank" rel="noopener noreferrer" class="go">Enter Syndeo →</a>
     </div>
 
     <div class="card c2">
@@ -1223,8 +1211,8 @@ END TICKER + SHOWCASE -->
   <div class="foot-bottom">
     <div class="fmeta">
       <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Recruitment</a>
-      <span>Syndeo <span style="opacity:0.6">(Under Construction)</span></span>
-      <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Founders and Friends Talent Network</a>
+      <a href="https://syndeo-main-page.eh2homes.workers.dev/" target="_blank" rel="noopener noreferrer">Syndeo</a>
+      <a href="https://the-source-flax.vercel.app/" target="_blank" rel="noopener noreferrer">Talent Network</a>
     </div>
     <div class="fmeta"><span>propertyandtechnology.com</span></div>
   </div>
