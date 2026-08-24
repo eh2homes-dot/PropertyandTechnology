@@ -103,9 +103,20 @@
     background:linear-gradient(to bottom, rgba(7,5,14,0.94), rgba(7,5,14,0));
     backdrop-filter:blur(8px);
   }
-  .logo-link{display:flex;align-items:center;line-height:0;}
-  .logo-img{height:38px;width:auto;display:block;}
+  .logo-link{display:flex;align-items:center;gap:10px;line-height:0;}
+  .logo-img{height:34px;width:auto;display:block;flex-shrink:0;}
+  .logo-text{
+    font-family:var(--font-head);font-weight:700;font-size:18px;letter-spacing:-0.02em;line-height:normal;
+    background:linear-gradient(90deg, #FFFFFF 0%, #6BFFD0 20%, #8F73E8 40%, #FFFFFF 62%, #FFFFFF 100%);
+    background-size:260% 100%;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+    animation:logo-sweep 7s linear infinite;
+  }
   @keyframes logo-sweep{from{background-position:130% 0;}to{background-position:-130% 0;}}
+  @media (prefers-reduced-motion:reduce){
+    .logo-text{animation:none;background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);}
+  }
   .navlinks{display:flex;gap:24px;font-size:14px;font-weight:700;color:var(--ink-soft);align-items:center;}
   .navlinks a:hover{color:var(--ink);}
   .navlinks .cta{
@@ -117,7 +128,8 @@
   @media (max-width:840px){.navlinks a:not(.cta){display:none;}}
   @media (max-width:380px){
     nav{padding:16px 4vw;}
-    .logo-img{height:30px;}
+    .logo-img{height:26px;}
+    .logo-text{font-size:15px;}
     .navlinks .cta{padding:8px 15px;font-size:12.5px;}
   }
 
@@ -721,7 +733,10 @@
 </div>
 
 <nav>
-  <a href="/" class="logo-link"><img src="assets/pt-logo.png" alt="Property and Technology" class="logo-img"></a>
+  <a href="/" class="logo-link">
+    <img src="assets/pt-logo.png" alt="" class="logo-img">
+    <span class="logo-text">Property and Technology</span>
+  </a>
   <div class="navlinks">
     <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Inside the Feed</a>
     <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Founders and Friends Talent Network</a>
