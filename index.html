@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Property + Technology</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -98,18 +103,9 @@
     background:linear-gradient(to bottom, rgba(7,5,14,0.94), rgba(7,5,14,0));
     backdrop-filter:blur(8px);
   }
-  .logo{
-    font-family:var(--font-head);font-weight:700;font-size:18px;letter-spacing:-0.02em;
-    background:linear-gradient(90deg, #FFFFFF 0%, #6BFFD0 20%, #8F73E8 40%, #FFFFFF 62%, #FFFFFF 100%);
-    background-size:260% 100%;
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;color:transparent;
-    animation:logo-sweep 7s linear infinite;
-  }
+  .logo-link{display:flex;align-items:center;line-height:0;}
+  .logo-img{height:38px;width:auto;display:block;}
   @keyframes logo-sweep{from{background-position:130% 0;}to{background-position:-130% 0;}}
-  @media (prefers-reduced-motion:reduce){
-    .logo{animation:none;background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);}
-  }
   .navlinks{display:flex;gap:24px;font-size:14px;font-weight:700;color:var(--ink-soft);align-items:center;}
   .navlinks a:hover{color:var(--ink);}
   .navlinks .cta{
@@ -121,7 +117,7 @@
   @media (max-width:840px){.navlinks a:not(.cta){display:none;}}
   @media (max-width:380px){
     nav{padding:16px 4vw;}
-    .logo{font-size:16px;}
+    .logo-img{height:30px;}
     .navlinks .cta{padding:8px 15px;font-size:12.5px;}
   }
 
@@ -725,10 +721,10 @@
 </div>
 
 <nav>
-  <div class="logo">Property and Technology</div>
+  <a href="/" class="logo-link"><img src="assets/pt-logo.png" alt="Property and Technology" class="logo-img"></a>
   <div class="navlinks">
-    <a href="https://evanprothro-newsletter.beehiiv.com/" target="_blank" rel="noopener noreferrer">Inside the Feed</a>
-    <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Founders &amp; Friends</a>
+    <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Inside the Feed</a>
+    <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Founders and Friends Talent Network</a>
     <a href="#under-construction">About</a>
     <a href="#contact">Contact Us</a>
     <a href="https://foundersandfriends.eh2homes.workers.dev/#/" class="cta" target="_blank" rel="noopener noreferrer">View Open Roles</a>
@@ -1213,7 +1209,7 @@ END TICKER + SHOWCASE -->
     <div class="fmeta">
       <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Recruitment</a>
       <span>Syndeo <span style="opacity:0.6">(Under Construction)</span></span>
-      <a href="https://the-source-flax.vercel.app/" target="_blank" rel="noopener noreferrer">Talent Network</a>
+      <a href="https://foundersandfriends.eh2homes.workers.dev/#/" target="_blank" rel="noopener noreferrer">Founders and Friends Talent Network</a>
     </div>
     <div class="fmeta"><span>propertyandtechnology.com</span></div>
   </div>
