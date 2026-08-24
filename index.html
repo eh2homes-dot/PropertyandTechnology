@@ -100,8 +100,8 @@
     backdrop-filter:blur(8px);
   }
   .brand{display:flex;align-items:center;gap:10px;}
-  .logo-mark{height:28px;width:auto;display:block;flex:none;}
-  @media (max-width:380px){.logo-mark{height:24px;}}
+  .logo-mark{height:28px;width:28px;display:block;flex:none;border-radius:7px;box-shadow:0 0 0 1px rgba(98,71,198,0.35), 0 0 14px rgba(79,227,176,0.18);}
+  @media (max-width:380px){.logo-mark{height:24px;width:24px;}}
   .logo{
     font-family:var(--font-head);font-weight:700;font-size:18px;letter-spacing:-0.02em;
     background:linear-gradient(90deg, #FFFFFF 0%, #6BFFD0 20%, #8F73E8 40%, #FFFFFF 62%, #FFFFFF 100%);
@@ -729,7 +729,7 @@
 
 <nav>
   <a class="brand" href="#recruitment">
-    <img class="logo-mark" src="assets/logo.svg" alt="">
+    <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#07050E"/><path d="M32 10 L54 32 L32 54 L10 32 Z" fill="#6247C6"/><path d="M32 20 L44 32 L32 44 L20 32 Z" fill="#4FE3B0"/></svg>
     <div class="logo">Property and Technology</div>
   </a>
   <div class="navlinks">
@@ -1173,7 +1173,7 @@ END TICKER + SHOWCASE -->
   <div class="foot-grid">
     <div>
       <div class="brand">
-        <img class="logo-mark" src="assets/logo.svg" alt="">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#07050E"/><path d="M32 10 L54 32 L32 54 L10 32 Z" fill="#6247C6"/><path d="M32 20 L44 32 L32 44 L20 32 Z" fill="#4FE3B0"/></svg>
         <div class="fmark">Property and Technology</div>
       </div>
       <p class="foot-blurb">Real estate, SFR operations, and the AI Technology reshaping proptech — written for every rank, from the field to the founder.</p>
