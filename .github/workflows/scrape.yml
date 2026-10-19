@@ -1,0 +1,54 @@
+name: Scrape jobs
+
+# Twice a day: confirm ATS boards for companies that don't have one yet,
+# then scrape every board into Airtable. Needs the AIRTABLE_TOKEN secret
+# (see README). Airtable holds all state, so nothing is committed back.
+on:
+  schedule:
+    # 06:17 and 18:17 UTC. Off the hour, where GitHub's scheduler is busiest.
+    - cron: '17 6,18 * * *'
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'One company Slug (blank = all)'
+        type: string
+        default: ''
+      dry:
+        description: 'Fetch and report, write nothing to Airtable'
+        type: boolean
+        default: false
+
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+      AIRTABLE_BASE_ID: ${{ vars.AIRTABLE_BASE_ID }}
+      MAX_JOBS_PER_COMPANY: ${{ vars.MAX_JOBS_PER_COMPANY }}
+      ARGS: ${{ inputs.dry && '--dry' || '' }} ${{ inputs.only && format('--only={0}', inputs.only) || '' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test
+        run: npm test
+
+      # A detection failure must not stop the boards we already know from being scraped.
+      - name: Detect ATS for companies that have none
+        continue-on-error: true
+        run: node scripts/detect-ats.mjs $ARGS
+
+      - name: Scrape boards into Airtable
+        run: node run.js $ARGS

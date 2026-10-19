@@ -1,20 +1,17 @@
 /**
  * config.js — lead list (companies) for the job boards
  * ---------------------------------------------------------------------------
- * 122 companies. Mirrored into Airtable, which is the system of record:
+ * 122 companies: the seed the Airtable Companies table was loaded from.
+ * Airtable is the system of record and is what run.js and detect-ats read:
  *   base  "Syndeo Job Search (Trial)"  (appnWM0QuCZS3xgYN)
  *   table "Companies"                  (tblAkryMy4NFc0eoG), keyed on Slug = id
- * Job postings and scrape runs live in the same base ("Job Postings",
- * "Scrape Runs"). Edit a lead here and in Airtable together, or treat
- * Airtable as authoritative and regenerate this file from it.
+ * Edit leads in Airtable. This file is only read by `run.js --dry` and
+ * `detect-ats.mjs --dry` when no AIRTABLE_TOKEN is set.
  *
- * `method` is null until a company's ATS has been detected. A company with no
- * method is skipped (and reported as pending), never scraped with a guessed
- * adapter: a wrong adapter produces silent zero-result runs that look like
- * "no openings".
- *
- * To set one by hand, fill in both fields:
- *     method: "greenhouse",   atsSlug: "their-board-token"
+ * `method` / `atsSlug` mirror Airtable's "ATS" / "ATS Slug". detect-ats
+ * fills those in Airtable, not here. A company with no ATS is skipped (and
+ * reported as pending), never scraped with a guessed adapter: a wrong
+ * adapter produces silent zero-result runs that look like "no openings".
  *
  * `active: false` marks a lead that has lapsed (acquired, rebranded, closed);
  * `note` says why. `parentId` marks a subsidiary whose roles may also appear
