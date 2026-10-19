@@ -151,7 +151,7 @@ export const COMPANIES = [
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
     parentId: null,   // id of a listed parent, or parent name if unlisted
-    note: "Acquired by Title Resources Group (2024). Confirm careers page before reactivating.",
+    note: "Taken private by Title Resources Group (closed 2024-09-27); tech arm now Doma Technology LLC. Confirm careers page before reactivating.",
     active: false,
   },
   {
@@ -196,7 +196,7 @@ export const COMPANIES = [
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
     parentId: null,   // id of a listed parent, or parent name if unlisted
-    note: "Acquired by Brookfield (2025). Confirm careers page before reactivating.",
+    note: "Agreed sale of portfolio and platform to Brookfield (Jan 2025; Maymont Homes manages the homes). Closing not confirmed. Confirm careers page before reactivating.",
     active: false,
   },
   {
@@ -1441,8 +1441,8 @@ export const COMPANIES = [
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
     parentId: null,   // id of a listed parent, or parent name if unlisted
-    note: "Rebranded as Pathlight Property Management. Replace careersUrl before reactivating.",
-    active: false,
+    note: "Listed as acquired by GA Technologies (Jan 2024, per CB Insights). Pathlight rebrand not confirmed; still treated as an active lead.",
+    active: true,
   },
   {
     id: "doorloop",
