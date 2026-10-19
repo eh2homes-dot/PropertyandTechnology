@@ -1,12 +1,11 @@
 /**
  * config.js — lead list (companies) for the job boards
  * ---------------------------------------------------------------------------
- * 122 companies. Mirrored into Airtable, which is the system of record:
- *   base  "Syndeo Job Search (Trial)"  (appnWM0QuCZS3xgYN)
- *   table "Companies"                  (tblAkryMy4NFc0eoG), keyed on Slug = id
- * Job postings and scrape runs live in the same base ("Job Postings",
- * "Scrape Runs"). Edit a lead here and in Airtable together, or treat
- * Airtable as authoritative and regenerate this file from it.
+ * 122 companies. NOT the live list: the job board, its scraper and the
+ * authoritative config.js live in eh2homes-dot/FoundersandFriends. This copy
+ * is a reviewed snapshot, also loaded into the Airtable base
+ * "Syndeo Job Search (Trial)" (appnWM0QuCZS3xgYN), table "Companies".
+ * Make lead changes in FoundersandFriends.
  *
  * `method` is null until a company's ATS has been detected. A company with no
  * method is skipped (and reported as pending), never scraped with a guessed
