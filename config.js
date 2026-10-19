@@ -1,23 +1,24 @@
 /**
- * config.js — scrape targets for run.js
+ * config.js — lead list (companies) for the job boards
  * ---------------------------------------------------------------------------
- * Generated from the verified-leads sheet (123 companies).
+ * 122 companies. Mirrored into Airtable, which is the system of record:
+ *   base  "Syndeo Job Search (Trial)"  (appnWM0QuCZS3xgYN)
+ *   table "Companies"                  (tblAkryMy4NFc0eoG), keyed on Slug = id
+ * Job postings and scrape runs live in the same base ("Job Postings",
+ * "Scrape Runs"). Edit a lead here and in Airtable together, or treat
+ * Airtable as authoritative and regenerate this file from it.
  *
- * `method` is null on every entry. It cannot be known without fetching each
- * careers page, and a guessed adapter is worse than no adapter — it produces
- * silent zero-result runs that look like "no openings". Run:
+ * `method` is null until a company's ATS has been detected. A company with no
+ * method is skipped (and reported as pending), never scraped with a guessed
+ * adapter: a wrong adapter produces silent zero-result runs that look like
+ * "no openings".
  *
- *     node scripts/detect-ats.js
- *
- * which probes each careers URL and writes `method` and `atsSlug` back into
- * this file, printing the ones it could not resolve.
- *
- * Until a company has a method, run.js skips it and logs it as skipped rather
- * than failed. That is why the board shows no live roles on a fresh install:
- * nothing is scrapeable yet.
- *
- * To set one by hand, find the company below and fill in both fields:
+ * To set one by hand, fill in both fields:
  *     method: "greenhouse",   atsSlug: "their-board-token"
+ *
+ * `active: false` marks a lead that has lapsed (acquired, rebranded, closed);
+ * `note` says why. `parentId` marks a subsidiary whose roles may also appear
+ * on the parent's board, so postings can be de-duplicated.
  */
 
 export const COMPANIES = [
@@ -32,6 +33,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -45,6 +48,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -58,6 +63,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -71,6 +78,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -84,6 +93,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -97,6 +108,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -110,6 +123,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -123,6 +138,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -136,7 +153,9 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
-    active: true,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: "Acquired by Title Resources Group (2024). Confirm careers page before reactivating.",
+    active: false,
   },
   {
     id: "blend-labs",
@@ -149,6 +168,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -162,6 +183,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -175,7 +198,9 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
-    active: true,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: "Acquired by Brookfield (2025). Confirm careers page before reactivating.",
+    active: false,
   },
   {
     id: "flock-homes",
@@ -188,6 +213,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -201,6 +228,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -214,6 +243,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -227,6 +258,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -240,6 +273,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -253,6 +288,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -266,6 +303,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -279,6 +318,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -292,6 +333,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -305,6 +348,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -318,6 +363,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -331,6 +378,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -344,6 +393,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -357,6 +408,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -370,6 +423,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -383,6 +438,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -396,6 +453,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -409,6 +468,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -422,6 +483,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -435,6 +498,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -448,6 +513,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -461,6 +528,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -474,6 +543,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -487,6 +558,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -500,6 +573,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -513,19 +588,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
-    active: true,
-  },
-  {
-    id: "opcity-realtorcom",
-    name: "Opcity (Realtor.com)",
-    hub: "proptech",
-    careersUrl: "https://www.move.com/careers",
-    website: "https://www.opcity.com",
-    state: "Texas",
-    segment: "Real Estate Lead Conversion Platform",
-    verified: false,
-    method: null,   // greenhouse | lever | workday | dom
-    atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -539,6 +603,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -552,6 +618,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -565,6 +633,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -578,6 +648,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -591,6 +663,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -604,6 +678,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -617,6 +693,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -630,6 +708,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -637,12 +717,14 @@ export const COMPANIES = [
     name: "SquareFoot",
     hub: "proptech",
     careersUrl: "https://www.squarefoot.com/careers",
-    website: "https://www.squarefootfinance.com",
+    website: "https://www.squarefoot.com",
     state: "New York",
     segment: "Commercial Office Brokerage Tech",
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -656,6 +738,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -669,6 +753,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -682,6 +768,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -695,6 +783,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -708,6 +798,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -721,6 +813,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -734,6 +828,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -747,6 +843,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -760,6 +858,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -773,6 +873,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -786,6 +888,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -799,6 +903,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -812,6 +918,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -825,6 +933,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -838,6 +948,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -851,6 +963,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -864,6 +978,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -877,6 +993,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: "realtorcom-move-inc",   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -890,6 +1008,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -903,6 +1023,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: "realpage",   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -916,6 +1038,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -929,6 +1053,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -942,6 +1068,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -955,6 +1083,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -968,6 +1098,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -981,6 +1113,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -994,6 +1128,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1007,6 +1143,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1020,6 +1158,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1033,6 +1173,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1046,6 +1188,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: "alarmcom",   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1059,6 +1203,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1072,6 +1218,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1085,6 +1233,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1098,6 +1248,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1111,6 +1263,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1124,6 +1278,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1137,6 +1293,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1150,6 +1308,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1163,6 +1323,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1176,6 +1338,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1189,6 +1353,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1202,6 +1368,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1215,6 +1383,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1228,6 +1398,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1241,6 +1413,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1254,6 +1428,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1267,7 +1443,9 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
-    active: true,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: "Rebranded as Pathlight Property Management. Replace careersUrl before reactivating.",
+    active: false,
   },
   {
     id: "doorloop",
@@ -1280,6 +1458,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1293,6 +1473,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1306,6 +1488,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1319,6 +1503,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1332,6 +1518,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1345,6 +1533,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1358,6 +1548,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1371,6 +1563,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: "Starwood Capital Group",   // id of a listed parent, or parent name if unlisted
+    note: "Externally managed by Starwood Capital; its roles are posted on starwoodcapital.com.",
     active: true,
   },
   {
@@ -1384,6 +1578,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1397,6 +1593,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1410,6 +1608,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1423,6 +1623,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1436,6 +1638,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1449,6 +1653,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1462,12 +1668,14 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
     id: "greystar",
     name: "Greystar",
-    hub: "proptech",
+    hub: "opco",
     careersUrl: "https://www.greystar.com/careers",
     website: "https://www.greystar.com",
     state: "South Carolina",
@@ -1475,6 +1683,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1488,6 +1698,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1501,6 +1713,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1514,6 +1728,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1527,6 +1743,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1540,6 +1758,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1553,6 +1773,8 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1566,6 +1788,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1579,12 +1803,14 @@ export const COMPANIES = [
     verified: true,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
     id: "tamarack-property-management",
     name: "Tamarack Property Management",
-    hub: "proptech",
+    hub: "opco",
     careersUrl: "https://www.tamarackproperty.com/careers",
     website: "https://www.tamarackproperty.com",
     state: "Montana",
@@ -1592,6 +1818,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1605,6 +1833,8 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
   {
@@ -1618,15 +1848,20 @@ export const COMPANIES = [
     verified: false,
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
+    parentId: null,   // id of a listed parent, or parent name if unlisted
+    note: null,
     active: true,
   },
 ];
 
-/** Only companies run.js can actually scrape right now. */
+/** Only companies that can actually be scraped right now. */
 export const scrapeable = (hub) => COMPANIES.filter(c =>
   c.active && c.method && (!hub || c.hub === hub));
 
 /** Configured but not yet resolvable — surface these, do not hide them. */
 export const pending = () => COMPANIES.filter(c => c.active && !c.method);
+
+/** Leads that have lapsed (acquired, rebranded, closed). */
+export const lapsed = () => COMPANIES.filter(c => !c.active);
 
 export default COMPANIES;
