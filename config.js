@@ -153,8 +153,8 @@ export const COMPANIES = [
     method: null,   // greenhouse | lever | workday | dom
     atsSlug: null,
     parentId: null,   // id of a listed parent, or parent name if unlisted
-    note: "Taken private by Title Resources Group (closed 2024-09-27); tech arm now Doma Technology LLC. Confirm careers page before reactivating.",
-    active: false,
+    note: "Taken private by Title Resources Group (closed 2024-09-27). Still hiring as Doma Technology: Greenhouse board at doma.com/tech/careers.",
+    active: true,
   },
   {
     id: "blend-labs",
