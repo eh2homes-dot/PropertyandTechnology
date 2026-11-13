@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Property and Technology</title>
-<meta name="description" content="The home for scattered site rental operations and the technology behind them: the Origins newsletter, the Founders &amp; Friends job board, the Origins podcast, and Syndeo.">
+<meta name="description" content="Who's hiring and who's moving in scattered site rental operations and proptech. Home of the Origins newsletter, the Founders &amp; Friends job board, and Syndeo.">
+<meta name="theme-color" content="#0B0618">
 <link rel="canonical" href="https://propertyandtechnology.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Property and Technology">
-<meta property="og:description" content="One home for scattered site rental operations and the technology behind them.">
+<meta property="og:description" content="Who's hiring and who's moving in scattered site rental operations and proptech.">
 <meta property="og:url" content="https://propertyandtechnology.com/">
 <meta property="og:image" content="https://propertyandtechnology.com/assets/pt-logo.png">
 <meta name="twitter:card" content="summary">
@@ -18,195 +19,193 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* Palette and type match propertyandtechnologyjobs.com (Founders & Friends). */
   :root{
-    --bg: #07050E;
-    --bg-2: #100C1D;
-    --line: rgba(240,238,250,0.11);
-    --ink: #F6F4FF;
-    --ink-soft: #D2CCE6;
-    --ink-dim: #A79FC4;
-    --green: #4FE3B0;
-    --green-dim: rgba(79,227,176,0.14);
-    --purple: #6247C6;
-    --purple-bright: #7757DC;
-    --purple-text: #8467E8;
-    --purple-dim: rgba(98,71,198,0.14);
-
-    --font-head: 'Bricolage Grotesque', sans-serif;
-    --font-body: 'Onest', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
+    --void:#07040F; --abyss:#0B0618;
+    --purple-deep:#120826; --purple-mid:#2B1055; --purple-edge:#5A2FA8;
+    --purple-bright:#7F4DE0;
+    --purple-text:#A98FEC;
+    --green:#00FF88;
+    --cyan:#3BE8FF;
+    --silver:#C8C5DA;
+    --ink:#F6F4FF; --ink-soft:#CFC9E4; --ink-dim:#9D95BD;
+    --line:rgba(200,197,218,.12);
+    --head:'EB Garamond',Garamond,'Apple Garamond',Georgia,serif;
+    --body:'EB Garamond',Garamond,'Apple Garamond',Georgia,serif;
+    --mono:'IBM Plex Mono',monospace;
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;background:var(--bg);}
+  html{scroll-behavior:smooth;background:var(--void);}
   body{
-    color:var(--ink);
-    font-family:var(--font-body);
-    font-size:16.5px;
-    line-height:1.62;
-    letter-spacing:0.004em;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    text-rendering:optimizeLegibility;
-    overflow-x:hidden;
+    font-family:var(--body);color:var(--ink);font-size:18px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;overflow-x:hidden;min-height:100vh;
+    background:transparent;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
     background:
-      radial-gradient(circle at 78% 0%, rgba(98,71,198,0.20), transparent 46%),
-      radial-gradient(circle at 8% 32%, rgba(79,227,176,0.07), transparent 42%),
-      var(--bg);
-    background-repeat:no-repeat;
+      linear-gradient(rgba(200,197,218,.04) 1px,transparent 1px) 0 0/100% 46px,
+      linear-gradient(90deg,rgba(200,197,218,.04) 1px,transparent 1px) 0 0/46px 100%,
+      radial-gradient(circle at 82% 2%,rgba(90,47,168,.42),transparent 52%),
+      radial-gradient(circle at 4% 92%,rgba(0,255,136,.10),transparent 50%),
+      linear-gradient(180deg,#0B0618,#120826 44%,#07040F 88%);
   }
   a{color:inherit;text-decoration:none;}
-  a:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px;}
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px;}
+  ::selection{background:var(--green);color:#04120A;}
   #doors,#about,#contact,#podcast,#events{scroll-margin-top:96px;}
 
-  .eyebrow{
-    font-family:var(--font-mono);
-    font-size:11.5px;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    color:var(--purple-text);
-    display:flex;align-items:center;gap:10px;
-  }
-  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--purple-text);box-shadow:0 0 8px var(--purple-text);}
+  h1,h2,h3{font-family:var(--head);font-weight:600;letter-spacing:0;text-wrap:balance;}
 
-  h1,h2,h3{
-    font-family:var(--font-head);
-    font-weight:600;
-    letter-spacing:-0.02em;
-    text-wrap:balance;
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--purple-text);display:flex;align-items:center;gap:10px;
   }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor;}
 
   /* ---------- nav ---------- */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:20px 5vw;
-    background:linear-gradient(to bottom, rgba(7,5,14,0.94), rgba(7,5,14,0));
-    backdrop-filter:blur(8px);
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:16px 5vw;
+    background:rgba(11,6,24,.82);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(10px);
   }
-  .brand{display:flex;align-items:center;gap:10px;}
-  .logo-mark{height:32px;width:32px;display:block;flex:none;border-radius:8px;}
+  .brand{display:flex;align-items:center;gap:11px;min-width:0;}
+  .logo-mark{height:34px;width:34px;display:block;flex:none;border-radius:8px;}
   .logo, footer .fmark{
-    font-family:var(--font-head);font-weight:700;letter-spacing:-0.02em;
-    background:linear-gradient(90deg, #FFFFFF 0%, #6BFFD0 20%, #8F73E8 40%, #FFFFFF 62%, #FFFFFF 100%);
+    font-family:var(--head);font-weight:700;white-space:nowrap;
+    background:linear-gradient(90deg, #FFFFFF 0%, #00FF88 22%, #A98FEC 42%, #FFFFFF 64%, #FFFFFF 100%);
     background-size:260% 100%;
     -webkit-background-clip:text;background-clip:text;
     -webkit-text-fill-color:transparent;color:transparent;
     animation:logo-sweep 7s linear infinite;
   }
-  .logo{font-size:18px;white-space:nowrap;}
-  @media (max-width:480px){.logo{font-size:16px;}}
-  footer .fmark{font-size:19px;}
+  .logo{font-size:22px;}
+  footer .fmark{font-size:22px;}
   @keyframes logo-sweep{from{background-position:130% 0;}to{background-position:-130% 0;}}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
-    .logo, footer .fmark{animation:none;background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);}
+  .navlinks{
+    display:flex;gap:22px;align-items:center;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);
   }
-  .navlinks{display:flex;gap:24px;font-size:14px;font-weight:700;color:var(--ink-soft);align-items:center;}
   .navlinks a:hover{color:var(--ink);}
   .navlinks .cta{
-    color:#FFFFFF;background:linear-gradient(135deg, var(--purple-bright), #4A2FA8);
-    padding:9px 18px;border-radius:100px;font-weight:700;font-size:13.5px;
-    box-shadow:0 6px 18px rgba(74,47,168,0.30);
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--green);border:1px solid rgba(0,255,136,.34);border-radius:100px;
+    padding:9px 16px;background:rgba(7,4,15,.6);white-space:nowrap;
+    transition:box-shadow .2s, background .2s;
   }
-  .navlinks .cta:hover{filter:brightness(1.12);}
-  @media (max-width:900px){.navlinks a:not(.cta){display:none;}}
-  @media (max-width:380px){
-    nav{padding:16px 4vw;}
-    .logo{font-size:14.5px;}
-    .logo-mark{height:26px;width:26px;}
-    .navlinks .cta{padding:8px 15px;font-size:12.5px;}
+  .navlinks .cta::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor;}
+  .navlinks .cta:hover{color:var(--green);background:rgba(0,255,136,.08);box-shadow:0 0 0 1px var(--green);}
+  @media (max-width:960px){.navlinks a:not(.cta){display:none;}}
+  @media (max-width:480px){
+    nav{padding:13px 4vw;}
+    .logo{font-size:18px;}
+    .logo-mark{height:28px;width:28px;}
+    .navlinks .cta{padding:8px 13px;font-size:10.5px;}
   }
+  @media (max-width:360px){.logo{font-size:16px;}}
 
   /* ---------- hero ---------- */
   .hero{
-    padding:150px 6vw 76px;
+    padding:148px 6vw 72px;
     max-width:1160px;
     margin:0 auto;
   }
   .hero h1{
-    font-size:clamp(2.2rem, 4.6vw, 3.6rem);
-    line-height:1.06;
+    font-size:clamp(2.35rem, 5vw, 4rem);
+    font-weight:700;
+    line-height:1.05;
     margin-top:20px;
-    max-width:19ch;
+    max-width:20ch;
     color:#FFFFFF;
   }
-  .hero h1 .accent{color:var(--green);}
+  .hero h1 .grad{
+    background:linear-gradient(90deg, var(--green) 0%, var(--silver) 48%, var(--purple-text) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
   .hero p.sub{
     margin-top:22px;
-    max-width:54ch;
-    font-size:18px;
-    line-height:1.66;
+    max-width:56ch;
+    font-size:clamp(1.15rem, 1.6vw, 1.32rem);
+    line-height:1.5;
     color:var(--ink-soft);
   }
-  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;align-items:center;}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
-    padding:14px 24px;border-radius:100px;
-    font-weight:700;font-size:15px;
-    transition:filter .2s ease, border-color .2s ease, background .2s ease;
+    font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+    padding:14px 20px;border-radius:8px;border:1px solid var(--line);
+    background:rgba(7,4,15,.6);color:var(--ink-soft);
+    transition:color .2s,border-color .2s,background .2s,box-shadow .2s,transform .15s;
   }
+  .btn:hover{color:var(--ink);border-color:rgba(200,197,218,.36);transform:translateY(-1px);}
   .btn.primary{
-    color:#FFFFFF;background:linear-gradient(135deg, var(--purple-bright), #4A2FA8);
-    box-shadow:0 10px 28px rgba(74,47,168,0.36);
+    color:#fff;border-color:rgba(0,255,136,.34);
+    background:linear-gradient(135deg,var(--purple-bright),var(--purple-mid));
+    box-shadow:0 6px 20px rgba(43,16,85,.5);
   }
-  .btn.primary:hover{filter:brightness(1.12);}
-  .btn.ghost{color:var(--ink);border:1px solid rgba(240,238,250,0.24);}
-  .btn.ghost:hover{border-color:var(--green);color:var(--green);}
-  .hero-note{
-    margin-top:18px;
-    font-family:var(--font-mono);font-size:12.5px;color:var(--ink-dim);
-  }
+  .btn.primary:hover{box-shadow:0 0 0 1px var(--green),0 8px 26px rgba(0,255,136,.2);}
+  .btn.ghost-green{color:var(--green);border-color:rgba(0,255,136,.3);}
+  .btn.ghost-green:hover{color:var(--green);border-color:var(--green);}
 
   /* ---------- doors ---------- */
   .hub{
-    padding:0 6vw 110px;
+    padding:0 6vw 96px;
     max-width:1160px;
     margin:0 auto;
   }
   .hub-head{
     border-top:1px solid var(--line);
-    padding-top:52px;
-    margin-bottom:32px;
+    padding-top:48px;
+    margin-bottom:28px;
   }
-  .hub-head h2{font-size:clamp(1.6rem,2.8vw,2.1rem);margin-top:10px;}
+  .hub-head h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-top:8px;}
   .hub-grid{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
     gap:1px;
     background:var(--line);
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:14px;
     overflow:hidden;
   }
   @media (max-width:920px){.hub-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.hub-grid{grid-template-columns:1fr;}}
 
   .card{
-    background:var(--bg-2);
-    padding:28px 30px 30px;
+    background:rgba(11,6,24,.94);
+    padding:26px 28px 28px;
     display:flex;flex-direction:column;
-    min-height:232px;
-    transition:background .3s ease;
+    min-height:236px;
+    transition:background .25s ease;
   }
-  a.card:hover{background:#151028;}
-  .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
+  a.card:hover{background:rgba(43,16,85,.42);}
+  .card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px;}
   .card .kind{
-    font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--ink-dim);
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--purple-text);
   }
   .pill{
-    font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;
-    padding:4px 10px;border-radius:100px;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    border:1px solid var(--line);color:var(--ink-dim);white-space:nowrap;
   }
-  .pill.live{color:var(--green);background:var(--green-dim);border:1px solid rgba(79,227,176,0.34);}
-  .pill.soon{color:var(--ink-dim);border:1px solid var(--line);}
-  .card h3{font-size:21px;line-height:1.2;margin-bottom:10px;}
-  .card p{font-size:15px;line-height:1.66;color:var(--ink-soft);flex-grow:1;}
+  .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;}
+  .pill.open{color:var(--green);border-color:rgba(0,255,136,.4);background:rgba(0,255,136,.08);}
+  .pill.open::before{box-shadow:0 0 8px var(--green);}
+  .pill.invite{color:var(--cyan);border-color:rgba(59,232,255,.4);background:rgba(59,232,255,.07);}
+  .card h3{font-size:26px;line-height:1.14;margin-bottom:10px;}
+  .card p{font-size:17.5px;line-height:1.5;color:var(--ink-soft);flex-grow:1;}
   .card .go{
-    margin-top:22px;font-family:var(--font-mono);font-size:12.5px;
+    margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;
     display:inline-flex;align-items:center;gap:8px;width:fit-content;
     color:var(--green);
     border-bottom:1px solid transparent;transition:border-color .2s ease, gap .2s ease;
@@ -218,26 +217,26 @@
 
   /* ---------- about ---------- */
   .about{
-    padding:0 6vw 100px;
+    padding:0 6vw 92px;
     max-width:1160px;
     margin:0 auto;
   }
   .about-inner{
     border-top:1px solid var(--line);
-    padding-top:52px;
+    padding-top:48px;
     display:grid;grid-template-columns:minmax(200px, 1fr) 2fr;gap:36px;
   }
-  @media (max-width:760px){.about-inner{grid-template-columns:1fr;gap:18px;}}
-  .about h2{font-size:clamp(1.5rem,2.4vw,1.9rem);margin-top:10px;}
-  .about p{font-size:17px;line-height:1.72;color:var(--ink-soft);max-width:60ch;}
-  .about p + p{margin-top:16px;}
-  .about p a{color:var(--green);border-bottom:1px solid rgba(79,227,176,0.4);}
+  @media (max-width:760px){.about-inner{grid-template-columns:1fr;gap:16px;}}
+  .about h2{font-size:clamp(1.7rem,2.6vw,2.1rem);margin-top:8px;}
+  .about p{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:58ch;}
+  .about p + p{margin-top:14px;}
+  .about p a{color:var(--green);border-bottom:1px solid rgba(0,255,136,.4);}
   .about p a:hover{border-color:currentColor;}
 
   /* ---------- footer ---------- */
   footer{
     border-top:1px solid var(--line);
-    padding:56px 6vw 36px;
+    padding:52px 6vw 34px;
     max-width:1160px;margin:0 auto;
   }
   .foot-grid{
@@ -246,44 +245,41 @@
     gap:44px;
     align-items:start;
   }
-  @media (max-width:560px){.foot-grid{grid-template-columns:1fr;gap:30px;}}
-  .foot-blurb{
-    margin-top:12px;max-width:38ch;
-    font-size:14.5px;line-height:1.65;color:var(--ink-soft);
-  }
+  @media (max-width:560px){.foot-grid{grid-template-columns:1fr;gap:28px;}}
+  .foot-blurb{margin-top:12px;max-width:38ch;font-size:16.5px;line-height:1.55;color:var(--ink-soft);}
   .foot-h{
-    font-family:var(--font-mono);font-size:10.5px;
-    letter-spacing:0.16em;text-transform:uppercase;color:var(--purple-text);
+    font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--purple-text);
     margin-bottom:14px;
   }
   .social-row{display:flex;gap:10px;flex-wrap:wrap;}
   .social{
-    width:40px;height:40px;border-radius:11px;
+    width:40px;height:40px;border-radius:10px;
     display:flex;align-items:center;justify-content:center;
     border:1px solid var(--line);
-    transition:background .2s ease, transform .2s ease;
+    background:rgba(7,4,15,.6);
+    color:var(--ink-soft);
+    transition:color .2s, border-color .2s, transform .2s;
   }
   .social svg{width:19px;height:19px;display:block;}
-  .social:hover{transform:translateY(-2px);}
-  .social.xt{color:#FFFFFF;background:rgba(255,255,255,0.10);border-color:rgba(255,255,255,0.34);}
-  .social.li{color:#3A9BE8;background:rgba(58,155,232,0.12);border-color:rgba(58,155,232,0.38);}
-  .social.yt{color:#FF4A45;background:rgba(255,74,69,0.12);border-color:rgba(255,74,69,0.38);}
-  .social.xt:hover{background:rgba(255,255,255,0.22);}
-  .social.li:hover{background:rgba(58,155,232,0.26);}
-  .social.yt:hover{background:rgba(255,74,69,0.26);}
+  .social:hover{color:var(--green);border-color:rgba(0,255,136,.4);transform:translateY(-2px);}
   .foot-bottom{
-    margin-top:44px;padding-top:22px;
+    margin-top:40px;padding-top:22px;
     border-top:1px solid var(--line);
     display:flex;justify-content:space-between;align-items:center;
     flex-wrap:wrap;gap:14px;
   }
   footer .fmeta{
-    font-family:var(--font-mono);font-weight:500;font-size:11.5px;color:var(--ink-soft);
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-soft);
     display:flex;gap:20px;flex-wrap:wrap;
   }
-  footer .fmeta a:hover{color:var(--ink);}
+  footer .fmeta a:hover{color:var(--green);}
 
-  ::selection{background:var(--green);color:#08110C;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .logo, footer .fmark{animation:none;background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);}
+    *,*::before,*::after{transition-duration:.001ms!important;}
+  }
 </style>
 </head>
 <body>
@@ -300,15 +296,20 @@
   LinkedIn ................ https://www.linkedin.com/in/evanprothrohoward
   X ....................... https://x.com/evanprothro_
 
+  NUMBERS — hard-coded, check them now and then against the job board:
+  "2,000+" live roles and "more than 100" companies (2,399 roles at 130
+  companies on Nov 13 2026). Named employers: Invitation Homes, Progress
+  Residential, AppFolio.
+
   Coming soon (no link yet): Podcast page, Events, Data.
   To switch a tile to live: change  class="card soon"  to  class="card",
-  change the pill to  <span class="pill live">Live</span>, and wrap the
+  change the pill to  <span class="pill open">Live</span>, and wrap the
   tile in an <a class="card" href="..."> like the live ones.
 -->
 
 <nav>
   <a class="brand" href="#top">
-    <img class="logo-mark" src="assets/logo-mark.png" alt="" width="32" height="32">
+    <img class="logo-mark" src="assets/logo-mark.png" alt="" width="34" height="34">
     <div class="logo">Property and Technology</div>
   </a>
   <div class="navlinks">
@@ -326,13 +327,12 @@
 
 <section class="hero">
   <div class="eyebrow">Property and Technology</div>
-  <h1>One home for scattered site rental operations and <span class="accent">the technology behind them.</span></h1>
-  <p class="sub">A newsletter, a job board, a podcast, and a founder community for the people who run rental portfolios and the people who build their software.</p>
+  <h1>Who's hiring and who's moving in <span class="grad">scattered site rental operations</span> and proptech.</h1>
+  <p class="sub">We run the Origins newsletter, the Founders &amp; Friends job board, and Syndeo, an invite-only community for founders and CEOs.</p>
   <div class="hero-actions">
-    <a class="btn primary" href="https://evanprothro-newsletter.beehiiv.com/subscribe?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">Subscribe to Origins &rarr;</a>
-    <a class="btn ghost" href="https://www.propertyandtechnologyjobs.com/?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">Browse open roles</a>
+    <a class="btn primary" href="https://evanprothro-newsletter.beehiiv.com/subscribe?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">Get Origins every Wednesday &rarr;</a>
+    <a class="btn ghost-green" href="https://www.propertyandtechnologyjobs.com/?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">Browse 2,000+ open roles</a>
   </div>
-  <p class="hero-note">Origins lands every Wednesday: open roles, who moved, and the founders behind them.</p>
 </section>
 
 <section class="hub" id="doors">
@@ -344,44 +344,44 @@
   <div class="hub-grid">
 
     <a class="card" href="https://evanprothro-newsletter.beehiiv.com/?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=tile" target="_blank" rel="noopener noreferrer">
-      <div class="card-top"><span class="kind">Newsletter</span><span class="pill live">Live</span></div>
+      <div class="card-top"><span class="kind">Newsletter</span><span class="pill open">Live</span></div>
       <h3>Origins</h3>
-      <p>Where proptech careers start. The best open roles, the biggest moves, and the founders behind them, every Wednesday.</p>
+      <p>Open roles, who moved, and the founders behind them. In your inbox every Wednesday.</p>
       <span class="go">Read Origins &rarr;</span>
     </a>
 
     <a class="card" href="https://www.propertyandtechnologyjobs.com/?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=tile" target="_blank" rel="noopener noreferrer">
-      <div class="card-top"><span class="kind">Jobs</span><span class="pill live">Live</span></div>
+      <div class="card-top"><span class="kind">Jobs</span><span class="pill open">Live</span></div>
       <h3>Founders &amp; Friends</h3>
-      <p>The scattered site talent network. Two hubs: one for scattered site operations, one for the technology that powers them.</p>
+      <p>2,000+ live roles at more than 100 operators and proptech companies, including Invitation Homes, Progress Residential, and AppFolio.</p>
       <span class="go">Browse roles &rarr;</span>
     </a>
 
     <a class="card" href="https://syndeo-main-page.eh2homes.workers.dev/" target="_blank" rel="noopener noreferrer">
-      <div class="card-top"><span class="kind">Community</span><span class="pill live">Live</span></div>
+      <div class="card-top"><span class="kind">Community</span><span class="pill invite">Invite only</span></div>
       <h3>Syndeo</h3>
-      <p>An invite-only community for CEOs and founders in property, real estate, and technology.</p>
+      <p>A community for CEOs and founders in property, real estate, and technology. Members join by invitation.</p>
       <span class="go">Enter Syndeo &rarr;</span>
     </a>
 
     <div class="card soon" id="podcast">
-      <div class="card-top"><span class="kind">Podcast</span><span class="pill soon">Coming soon</span></div>
+      <div class="card-top"><span class="kind">Podcast</span><span class="pill">Coming soon</span></div>
       <h3>Origins: How Leaders Got Their Start</h3>
-      <p>Conversations with the people running portfolios and building the software, and the moments that set their path.</p>
+      <p>Interviews with operators and founders about how they got started.</p>
       <a class="go" href="https://www.youtube.com/@PropertyandTechnologyMedia" target="_blank" rel="noopener noreferrer">Watch clips on YouTube &rarr;</a>
     </div>
 
     <div class="card soon" id="events">
-      <div class="card-top"><span class="kind">Events</span><span class="pill soon">Coming soon</span></div>
+      <div class="card-top"><span class="kind">Events</span><span class="pill">Coming soon</span></div>
       <h3>Events</h3>
-      <p>The industry calendar in one place: what is happening, where, and when.</p>
+      <p>Industry conferences and meetups, with dates and locations.</p>
       <span class="go dim">In the works</span>
     </div>
 
     <div class="card soon" id="data">
-      <div class="card-top"><span class="kind">Data</span><span class="pill soon">Coming soon</span></div>
+      <div class="card-top"><span class="kind">Data</span><span class="pill">Coming soon</span></div>
       <h3>Operator Data</h3>
-      <p>A registry of scattered site operators: who runs what, and where.</p>
+      <p>A registry of scattered site rental operators and the markets they run.</p>
       <span class="go dim">In the works</span>
     </div>
 
@@ -395,8 +395,8 @@
       <h2>Who this is for.</h2>
     </div>
     <div>
-      <p>Property and Technology covers scattered site rental operations and the technology reshaping them. It is written for every rank, from the field to the founder.</p>
-      <p>Everything here links out to its own home. Start with <a href="https://evanprothro-newsletter.beehiiv.com/subscribe?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=about" target="_blank" rel="noopener noreferrer">the newsletter</a>; it is the fastest way to see what we are working on.</p>
+      <p>People who work at scattered site rental operators, in leasing, property management, asset management, and leadership. And the founders, sales teams, and engineers at the software companies that serve them.</p>
+      <p>New here? Start with <a href="https://evanprothro-newsletter.beehiiv.com/subscribe?utm_source=propertyandtechnology&amp;utm_medium=hub&amp;utm_campaign=about" target="_blank" rel="noopener noreferrer">Origins</a>.</p>
     </div>
   </div>
 </section>
@@ -407,26 +407,26 @@
   <div class="foot-grid">
     <div>
       <div class="brand">
-        <img class="logo-mark" src="assets/logo-mark.png" alt="" width="32" height="32">
+        <img class="logo-mark" src="assets/logo-mark.png" alt="" width="34" height="34">
         <div class="fmark">Property and Technology</div>
       </div>
-      <p class="foot-blurb">Scattered site rental operations and the technology reshaping them, for every rank from the field to the founder.</p>
+      <p class="foot-blurb">Scattered site rental operations and proptech, for every rank from the field to the founder.</p>
     </div>
 
     <div id="contact">
       <div class="foot-h">Connect</div>
       <div class="social-row">
-        <a class="social li" href="https://www.linkedin.com/in/evanprothrohoward" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a class="social" href="https://www.linkedin.com/in/evanprothrohoward" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M5.1 3.6a2.02 2.02 0 1 0 0 4.04 2.02 2.02 0 0 0 0-4.04M3.3 9.13h3.6V21H3.3zM9.6 9.13h3.45v1.62h.05a3.79 3.79 0 0 1 3.4-1.87c3.64 0 4.31 2.39 4.31 5.5V21h-3.6v-5.35c0-1.28-.02-2.92-1.78-2.92-1.78 0-2.05 1.39-2.05 2.83V21H9.6z"/>
           </svg>
         </a>
-        <a class="social xt" href="https://x.com/evanprothro_" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <a class="social" href="https://x.com/evanprothro_" target="_blank" rel="noopener noreferrer" aria-label="X">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M17.75 3h3.07l-6.71 7.67L22 21h-6.18l-4.84-6.33L5.44 21H2.37l7.18-8.2L2 3h6.34l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"/>
           </svg>
         </a>
-        <a class="social yt" href="https://www.youtube.com/@PropertyandTechnologyMedia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a class="social" href="https://www.youtube.com/@PropertyandTechnologyMedia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21.58 7.19a2.51 2.51 0 0 0-1.77-1.78C18.25 5 12 5 12 5s-6.25 0-7.81.41A2.51 2.51 0 0 0 2.42 7.2 26.2 26.2 0 0 0 2 12a26.2 26.2 0 0 0 .42 4.81 2.51 2.51 0 0 0 1.77 1.78C5.75 19 12 19 12 19s6.25 0 7.81-.41a2.51 2.51 0 0 0 1.77-1.78A26.2 26.2 0 0 0 22 12a26.2 26.2 0 0 0-.42-4.81M10 15.02V8.98L15.2 12z"/>
           </svg>
